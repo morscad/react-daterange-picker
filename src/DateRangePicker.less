@@ -62,20 +62,8 @@
     }
   }
 
-  &__navigation {
-    &__button {
-      border:none;
-      outline: none;
-
-      &:disabled {
-        background: transparent;
-        visibility: hidden;
-      }
-    }
-  }
-
+  
   &__button {
-    border: 0;
     background: transparent;
     padding: 4px 6px;
     outline: 1px solid #404041;
@@ -93,11 +81,7 @@
     &:disabled {
       background: transparent;
       visibility: hidden;
-      svg {
-        g {
-          stroke: rgb(109, 109, 109);
-        }
-      }
+
     }
 
     svg {
@@ -118,7 +102,43 @@
     }
 
     .react-calendar {
-      border-bottom: none;
+      border:none;
+      button {
+        outline: 1px solid #404041;
+      }
+      .react-calendar__tile {
+        &:disabled {
+          background: transparent;
+          visibility: hidden;
+        }
+      }
+      .react-calendar__tile--hasActive {
+          background-color:  #404041;
+          color:  #FFFFFF;
+      }
+      .react-calendar__tile--active {
+          background-color:  #404041;
+          color:  #FFFFFF !important;
+      }
+      .react-calendar__month-view__days__day--weekend {
+        color: #404041;
+      }
+
+      .react-calendar__navigation {
+        button {
+          border:none;
+          outline: none;
+    
+          &:disabled {
+            background: transparent;
+            visibility: hidden;
+          }
+        }
+
+      }
     }
+    
+
+
   }
 }
