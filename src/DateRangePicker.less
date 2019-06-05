@@ -62,24 +62,37 @@
     }
   }
 
+  &__navigation {
+    &__button {
+      border:none;
+      outline: none;
+
+      &:disabled {
+        background: transparent;
+        visibility: hidden;
+      }
+    }
+  }
+
   &__button {
     border: 0;
     background: transparent;
     padding: 4px 6px;
-
+    outline: 1px solid #404041;
+    background-color: #FFFFFF;
+    color: #404041;
     &:enabled {
       cursor: pointer;
 
       &:hover, &:focus {
-        svg {
-          g {
-            stroke: rgb(0, 120, 215);
-          }
-        }
+        background-color: #404041;
+        color:#FFFFFF;
       }
     }
 
     &:disabled {
+      background: transparent;
+      visibility: hidden;
       svg {
         g {
           stroke: rgb(109, 109, 109);
@@ -105,7 +118,7 @@
     }
 
     .react-calendar {
-      border-width: thin;
+      border-bottom: none;
     }
   }
 }
