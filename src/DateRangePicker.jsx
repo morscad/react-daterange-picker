@@ -50,8 +50,9 @@ export default class DateRangePicker extends PureComponent {
   }
 
   onOutsideAction = (event) => {
+    const { alwaysKeepOpen } = this.props;
     if (this.wrapper && !this.wrapper.contains(event.target)) {
-      this.closeCalendar();
+      if (!alwaysKeepOpen || (!!alwaysKeepOpen && alwaysKeepOpen === 'false')) this.closeCalendar();
     }
   }
 
@@ -74,8 +75,9 @@ export default class DateRangePicker extends PureComponent {
   }
 
   onChange = (value, closeCalendar = true) => {
+    const { alwaysKeepOpen } = this.props;
     this.setState({
-      isOpen: !closeCalendar,
+      isOpen: !closeCalendar || (!!alwaysKeepOpen && alwaysKeepOpen === 'true'),
     });
 
     const { onChange } = this.props;
@@ -85,15 +87,23 @@ export default class DateRangePicker extends PureComponent {
   }
 
   onChangeFrom = (valueFrom, closeCalendar = true) => {
-    const { value } = this.props;
+    const { alwaysKeepOpen, value } = this.props;
     const [, valueTo] = [].concat(value);
-    this.onChange([valueFrom, valueTo], closeCalendar);
+    if (!!alwaysKeepOpen && alwaysKeepOpen === 'true') {
+      this.onChange([valueFrom, valueTo]);
+    } else {
+      this.onChange([valueFrom, valueTo], closeCalendar);
+    }
   }
 
   onChangeTo = (valueTo, closeCalendar = true) => {
-    const { value } = this.props;
+    const { alwaysKeepOpen, value } = this.props;
     const [valueFrom] = [].concat(value);
-    this.onChange([valueFrom, valueTo], closeCalendar);
+    if (!!alwaysKeepOpen && alwaysKeepOpen === 'true') {
+      this.onChange([valueFrom, valueTo]);
+    } else {
+      this.onChange([valueFrom, valueTo], closeCalendar);
+    }
   }
 
   onFocus = (event) => {
@@ -272,6 +282,7 @@ const ClearIcon = (
 );
 
 DateRangePicker.defaultProps = {
+  alwaysKeepOpen: 'false',
   calendarIcon: CalendarIcon,
   clearIcon: ClearIcon,
   isOpen: null,
@@ -279,6 +290,7 @@ DateRangePicker.defaultProps = {
 };
 
 DateRangePicker.propTypes = {
+  alwaysKeepOpen: PropTypes.string,
   ...Calendar.propTypes,
   calendarClassName: PropTypes.oneOfType([
     PropTypes.string,
