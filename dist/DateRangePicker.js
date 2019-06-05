@@ -256,7 +256,10 @@ function (_PureComponent) {
         showLeadingZeros: showLeadingZeros
       };
       return _react["default"].createElement("div", {
-        className: "".concat(baseClassName, "__wrapper")
+        className: "".concat(baseClassName, "__wrapper"),
+        style: {
+          visibility: 'hidden'
+        }
       }, _react["default"].createElement(_DateInput["default"], _extends({}, commonProps, {
         name: "".concat(name, "_from"),
         onChange: this.onChangeFrom,
