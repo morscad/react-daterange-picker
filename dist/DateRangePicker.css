@@ -53,16 +53,7 @@
   margin-left: -0.54em;
   padding-left: calc(1px +  0.54em);
 }
-.react-daterange-picker__navigation__button {
-  border: none;
-  outline: none;
-}
-.react-daterange-picker__navigation__button:disabled {
-  background: transparent;
-  visibility: hidden;
-}
 .react-daterange-picker__button {
-  border: 0;
   background: transparent;
   padding: 4px 6px;
   outline: 1px solid #404041;
@@ -81,9 +72,6 @@
   background: transparent;
   visibility: hidden;
 }
-.react-daterange-picker__button:disabled svg g {
-  stroke: #6d6d6d;
-}
 .react-daterange-picker__button svg {
   display: inherit;
 }
@@ -99,5 +87,31 @@
   display: none;
 }
 .react-daterange-picker__calendar .react-calendar {
-  border-bottom: none;
+  border: none;
+}
+.react-daterange-picker__calendar .react-calendar button {
+  outline: 1px solid #404041;
+}
+.react-daterange-picker__calendar .react-calendar .react-calendar__tile:disabled {
+  background: transparent;
+  visibility: hidden;
+}
+.react-daterange-picker__calendar .react-calendar .react-calendar__tile--hasActive {
+  background-color: #404041;
+  color: #FFFFFF;
+}
+.react-daterange-picker__calendar .react-calendar .react-calendar__tile--active {
+  background-color: #404041;
+  color: #FFFFFF !important;
+}
+.react-daterange-picker__calendar .react-calendar .react-calendar__month-view__days__day--weekend {
+  color: #404041;
+}
+.react-daterange-picker__calendar .react-calendar .react-calendar__navigation button {
+  border: none;
+  outline: none;
+}
+.react-daterange-picker__calendar .react-calendar .react-calendar__navigation button:disabled {
+  background: transparent;
+  visibility: hidden;
 }
