@@ -158,7 +158,7 @@ export default class DateRangePicker extends PureComponent {
     };
 
     return (
-      <div className={`${baseClassName}__wrapper`}>
+      <div className={`${baseClassName}__wrapper`} style={{ visibility: 'hidden' }}>
         <DateInput
           {...commonProps}
           name={`${name}_from`}
