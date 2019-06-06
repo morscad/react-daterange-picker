@@ -1,6 +1,7 @@
 .react-daterange-picker {
   display: inline-flex;
   position: relative;
+  left: calc(50% - 175px);
 }
 .react-daterange-picker,
 .react-daterange-picker *,
